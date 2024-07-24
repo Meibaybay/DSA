@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercise1 {
+public class ex1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of values in array: ");
@@ -19,18 +19,11 @@ public class exercise1 {
             System.out.println(m + " appears at index " + result + ".");
         }
     }
-    //Big-OH O(log n)
-    public static int SimpleSearch (int n, int []N, int m){
-        int low = 0;
-        int high = n-1;
-        while (low <= high){
-            int mid = (low+high)/2;
-            if (N[mid] == m) {
-                return mid;
-            } else if (N[mid]<m) {
-                low = mid + 1;
-            } else {
-                high = mid -1;
+    //algorithm O(n)
+    public static int SimpleSearch (int n, int [] N, int m) {
+        for (int i = 0; i < n; i++) {
+            if (N[i] == m) {
+                return i;
             }
         }
         return -1;

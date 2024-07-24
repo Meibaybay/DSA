@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercise2 {
+public class ex2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("The degree of the polynomial: ");
@@ -15,12 +15,17 @@ public class exercise2 {
         double result = PolyEvaluate(n,A,x);
         System.out.println("The value of f(x) is " + result);
     }
-    public static double PolyEvaluate (int n, double [] A, double x){
-        int result = 0;
-        for(int i = n-1; i>=0; i--){
-            result*=x*=A[i];
+    public static double PolyEvaluate (int n, double []A, double x){
+        int s = 0;
+        for (int i=0; i<n; i++){
+            int p = 1;
+            if (i != 0){
+                for (int k =1; k<=i; k++){
+                    p*=x;
+                }
+            }
+            s+=A[i]*p;
         }
-        return result;
+        return s;
     }
-
 }
